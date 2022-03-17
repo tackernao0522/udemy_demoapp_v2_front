@@ -12,7 +12,7 @@
         <v-simple-table dense>
           <template
             v-if="users.length"
-            v-slot:default
+            #default
           >
             <thead>
               <tr>
