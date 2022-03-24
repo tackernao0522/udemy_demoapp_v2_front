@@ -5,11 +5,14 @@
         v-model="isValid"
       >
         <user-form-name
-          :name.sync="name"
+          :name.sync="params.user.name"
         />
-        name => {{ name }}
-        <user-form-email />
-        <user-form-password />
+        <user-form-email
+          :email.sync="params.user.email"
+        />
+        <user-form-password
+          :password.sync="params.user.password"
+        />
         <!-- disabled=true => ボタンクリックを無効にする -->
         <v-btn
           :disabled="!isValid"
@@ -20,6 +23,7 @@
           登録する
         </v-btn>
       </v-form>
+      {{ params }}
     </template>
   </user-form-card>
 </template>
@@ -36,7 +40,8 @@ export default {
   data () {
     return {
       name: '',
-      isValid: false
+      isValid: false,
+      params: { user: { name: '', email: '', password: '' } }
     }
   }
 }
