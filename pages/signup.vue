@@ -4,7 +4,10 @@
       <v-form
         v-model="isValid"
       >
-        <user-form-name />
+        <user-form-name
+          :name.sync="name"
+        />
+        name => {{ name }}
         <user-form-email />
         <user-form-password />
         <!-- disabled=true => ボタンクリックを無効にする -->
@@ -32,6 +35,7 @@ export default {
   layout: 'before-login',
   data () {
     return {
+      name: '',
       isValid: false
     }
   }
