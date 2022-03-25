@@ -9,9 +9,11 @@
         />
         <user-form-email
           :email.sync="params.user.email"
+          placeholder
         />
         <user-form-password
           :password.sync="params.user.password"
+          set-validation
         />
         <!-- disabled=true => ボタンクリックを無効にする -->
         <v-btn
