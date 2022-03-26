@@ -17,16 +17,20 @@
 
     <v-spacer />
 
-    <app-signup-button />
-    <app-login-button />
+    <befor-login-app-bar-signup-button />
+    <befor-login-app-bar-login-button />
   </v-app-bar>
 </template>
 
 <script>
-import AppLoginButton from '../App/AppLoginButton.vue'
-import AppSignupButton from '../App/AppSignupButton.vue'
+import AppLogo from '../App/AppLogo.vue'
+import AppTitle from '../App/AppTitle.vue'
+import BeforLoginAppBarLoginButton from './BeforLoginAppBarLoginButton.vue'
+import BeforLoginAppBarSignupButton from './BeforLoginAppBarSignupButton.vue'
+
 export default {
-  components: { AppSignupButton, AppLoginButton },
+  components: { BeforLoginAppBarSignupButton, BeforLoginAppBarLoginButton, AppLogo, AppTitle },
+
   data ({ $store }) {
     return {
       homeAppBarHeight: $store.state.styles.homeAppBarHeight
