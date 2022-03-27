@@ -47,18 +47,19 @@ import UserFormPassword from '../components/User/UserFormPassword.vue'
 export default {
   components: { UserFormCard, UserFormEmail, UserFormPassword },
   layout: 'before-login',
-  data () {
+  data ({ $store }) {
     return {
       name: '',
       isValid: false,
       loading: false,
-      params: { user: { email: '', password: '' } }
+      params: { user: { email: '', password: '' } },
+      redirectPath: $store.state.loggedIn.redirectPath
     }
   },
   methods: {
     login () {
       this.loading = true
-      setTimeout(() => (this.loading = false), 1500)
+      this.$router.push(this.redirectPath)
     }
   }
 }
