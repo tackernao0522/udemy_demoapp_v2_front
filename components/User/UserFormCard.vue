@@ -17,13 +17,13 @@
 
 <script>
 export default {
-  data ({ $route, $config: { appName } }) {
+  data ({ $route, $config: { appName }, $my }) {
     return {
       appName,
       // $route.name => /signup = name: signup
       // $route.name => /account/settings = name: account-settings
       // `pages.${$route.name}` => pages.signup
-      pageTitle: this.$t(`pages.${$route.name}`)
+      pageTitle: $my.pageTitle($route.name)
     }
   }
 }
