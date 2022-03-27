@@ -5,7 +5,7 @@
     class="ml-2 font-weight-bold"
     to="/signup"
   >
-    {{ $t('pages.signup') }}
+    {{ $my.pageTitle('signup') }}
   </v-btn>
 </template>
 
