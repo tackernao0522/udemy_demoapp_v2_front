@@ -4,6 +4,7 @@
       <v-form
         ref="form"
         v-model="isValid"
+        @submit.prevent="signup"
       >
         <user-form-name
           :name.sync="params.user.name"
@@ -18,12 +19,12 @@
         />
         <!-- disabled=true => ボタンクリックを無効にする -->
         <v-btn
+          type="submit"
           :disabled="!isValid || loading"
           :loading="loading"
           block
           color="appblue"
           class="white--text"
-          @click="signup"
         >
           登録する
         </v-btn>
