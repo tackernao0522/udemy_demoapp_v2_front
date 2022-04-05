@@ -12,13 +12,7 @@ export const state = () => ({
   },
   project: {
     current: null,
-    list: [
-      { id: 1, name: 'MyProject01', updatedAt: '2020-04-01T12:00:00+09:00' },
-      { id: 2, name: 'MyProject02MyProject02MyProject02MyProject02', updatedAt: '2020-04-05T12:00:00+09:00' },
-      { id: 3, name: 'MyProject03', updatedAt: '2020-04-03T12:00:00+09:00' },
-      { id: 4, name: 'MyProject04', updatedAt: '2020-04-04T12:00:00+09:00' },
-      { id: 5, name: 'MyProject05', updatedAt: '2020-04-01T12:00:00+09:00' }
-    ]
+    list: []
   },
   user: {
     current: null
@@ -35,6 +29,9 @@ export const getters = {}
 
 // stateの値を変更する場所
 export const mutations = {
+  setProjectList (state, payload) {
+    state.project.list = payload
+  },
   setCurrentProject (state, payload) {
     state.project.current = payload
   },
@@ -54,6 +51,10 @@ export const mutations = {
 
 // メソッド
 export const actions = {
+  getProjectList ({ commit }, projects) {
+    projects = projects || []
+    commit('setProjectList', projects)
+  },
   // { state, getters, commit, dispatch, rootState, rootGetters } この6つの値が取得できる
   // rootState => ルート(store/index.js)のstateを取得(rootState = state)
   getCurrentProject({ state, commit }, params) {
