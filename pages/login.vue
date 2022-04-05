@@ -72,7 +72,16 @@ export default {
     authSuccessful (response) {
       // eslint-disable-next-line no-console
       console.log('authSuccessful', response)
-      // TODO ログイン処理
+      this.$auth.login(response)
+      // TODO test
+      // eslint-disable-next-line no-console
+      console.log('token', this.$auth.token)
+      // eslint-disable-next-line no-console
+      console.log('expires', this.$auth.expires)
+      // eslint-disable-next-line no-console
+      console.log('payload', this.$auth.payload)
+      // eslint-disable-next-line no-console
+      console.log('user', this.$auth.user)
       // TODO 記憶ルートリダイレクト
       this.$router.push(this.redirectPath)
     },
