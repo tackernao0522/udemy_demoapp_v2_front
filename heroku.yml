@@ -6,6 +6,6 @@ build:
     web: Dockerfile
   config:
     WORKDIR: app
-    API_URL: 'https://tk-railsnuxtv1-api.herokuapp.com'
+    API_URL: 'https://tk-railsnuxtv1-api.herokuapp.com/'
 run:
   web: yarn run start
