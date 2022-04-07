@@ -57,7 +57,8 @@ export default {
       loading: false,
       // TODO 削除する
       params: { auth: { email: 'user0@example.com', password: 'password' } },
-      redirectPath: $store.state.loggedIn.homePath
+      redirectPath: $store.state.loggedIn.rememberPath,
+      loggedInHomePath: $store.state.loggedIn.homePath
     }
   },
   methods: {
@@ -71,20 +72,10 @@ export default {
       this.loading = false
     },
     authSuccessful (response) {
-      // eslint-disable-next-line no-console
-      console.log('authSuccessful', response)
       this.$auth.login(response)
-      // TODO test
-      // eslint-disable-next-line no-console
-      console.log('token', this.$auth.token)
-      // eslint-disable-next-line no-console
-      console.log('expires', this.$auth.expires)
-      // eslint-disable-next-line no-console
-      console.log('payload', this.$auth.payload)
-      // eslint-disable-next-line no-console
-      console.log('user', this.$auth.user)
-      // TODO 記憶ルートリダイレクト
       this.$router.push(this.redirectPath)
+      // 記憶ルートを初期値に戻す
+      this.$store.dispatch('getRememberPath', this.loggedInHomePath)
     },
     authFailure ({ response }) {
       if (response && response.status === 404) {
