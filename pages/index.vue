@@ -71,6 +71,7 @@ export default {
     HomeCompany,
     AppFooter
   },
+  middleware: ['logged-in-redirect'],
   data() {
     return {
       imgHeight: 500,

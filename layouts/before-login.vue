@@ -15,6 +15,7 @@ import AppToaster from '../components/App/AppToaster.vue'
 import BeforeLoginAppBar from '../components/BeforeLogin/BeforeLoginAppBar.vue'
 export default {
   name: 'LayoutsBeforeLogin',
-  components: { BeforeLoginAppBar, AppFooter, AppToaster }
+  components: { BeforeLoginAppBar, AppFooter, AppToaster },
+  middleware: ['logged-in-redirect']
 }
 </script>
