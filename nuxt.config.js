@@ -59,6 +59,11 @@ export default {
     middleware: ['silent-refresh-token']
   },
 
+  // Doc: https://nuxtjs.org/ja/docs/configuration-glossary/configuration-servermiddleware/
+  serverMiddleware: [
+    '~/server/redirect-ssl'
+  ],
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // 環境変数API_URLが優先される
